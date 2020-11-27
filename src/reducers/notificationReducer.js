@@ -1,9 +1,20 @@
 const initialState = 'Welcome!'
 
-export const actionNotify = (content) => ({
-  type: 'SET_NOTIFICATION',
-  data: content
-})
+export const setNotification = (content, second) => (
+  async dispatch => {
+    setTimeout(()=>{
+      dispatch({
+        type: 'SET_NOTIFICATION',
+        data: 'Welcome!'
+      })
+    }, second*1e3)
+
+    dispatch({
+      type: 'SET_NOTIFICATION',
+      data: content
+    })
+  }
+)
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
