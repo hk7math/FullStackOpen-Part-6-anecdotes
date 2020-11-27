@@ -27,6 +27,7 @@ const reducer = (state = initialState, action) => {
         anecdote.id !== id 
         ? anecdote 
         : { ...anecdote, votes: anecdote.votes + 1 })
+        .sort((a, b) => b.votes - a.votes)
     case 'ADD_ANECDOTE':
       const anecdote = action.data
       return [...state, anecdote]
