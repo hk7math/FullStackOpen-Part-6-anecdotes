@@ -1,28 +1,24 @@
 export const getId = () => (100000 * Math.random()).toFixed(0)
 
-export const actionVote = (id) => ({ 
+export const actionVote = data => ({ 
   type: 'VOTE_ANECDOTE',
-  data: { id }
+  data
 })
 
-export const actionAdd = (content) => ({
+export const actionAdd = data => ({
   type: 'ADD_ANECDOTE',
-  data: {
-    content,
-    id: getId(),
-    votes: 0
-  }
+  data
 })
 
-export const actionInit = (anecdotes) => ({
+export const actionInit = data => ({
   type: 'INIT_ANECDOTE',
-  data: anecdotes
+  data
 })
 
 const reducer = (state = [], action) => {
   switch (action.type) {
     case 'VOTE_ANECDOTE':
-      const { id } = action.data
+      const id = action.data
       return state.map(anecdote => 
         anecdote.id !== id 
         ? anecdote 
