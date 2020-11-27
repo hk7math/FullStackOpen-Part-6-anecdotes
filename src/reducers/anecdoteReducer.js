@@ -1,3 +1,5 @@
+import anecdoteService from '../services/anecdotes'
+
 export const getId = () => (100000 * Math.random()).toFixed(0)
 
 export const actionVote = data => ({ 
@@ -10,10 +12,15 @@ export const actionAdd = data => ({
   data
 })
 
-export const actionInit = data => ({
-  type: 'INIT_ANECDOTE',
-  data
-})
+export const actionInit = () => (
+  async dispatch => {
+    const data = await anecdoteService.getAll()
+    dispatch({
+      type: 'INIT_ANECDOTE',
+      data
+    })
+  }
+)
 
 const reducer = (state = [], action) => {
   switch (action.type) {
