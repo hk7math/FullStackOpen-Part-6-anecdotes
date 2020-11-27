@@ -7,10 +7,15 @@ export const actionVote = data => ({
   data
 })
 
-export const actionAdd = data => ({
-  type: 'ADD_ANECDOTE',
-  data
-})
+export const actionAdd = (anecdote) => (
+  async dispatch => {
+    const data = await anecdoteService.addNew(anecdote)
+    dispatch({
+      type: 'ADD_ANECDOTE',
+      data
+    })
+}
+)
 
 export const actionInit = () => (
   async dispatch => {
