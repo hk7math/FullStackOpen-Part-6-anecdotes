@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { actionAdd } from '../reducers/anecdoteReducer'
 import { setNotification } from '../reducers/notificationReducer'
-import anecdoteService from '../services/anecdotes'
 
 const AnecdoteForm = ({ actionAdd, setNotification }) => {
   const addAnecdote = async (event) => {
