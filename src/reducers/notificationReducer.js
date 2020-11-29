@@ -1,8 +1,10 @@
 const initialState = 'Welcome!'
+let timeout
 
 export const setNotification = (content, second) => (
   async dispatch => {
-    setTimeout(()=>{
+    clearTimeout(timeout)
+    timeout = setTimeout(()=>{
       dispatch({
         type: 'SET_NOTIFICATION',
         data: 'Welcome!'
