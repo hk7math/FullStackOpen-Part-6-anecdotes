@@ -29,10 +29,7 @@ const AnecdoteList = ({ anecdotes, filter, actionVote, setNotification }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  anecdotes: state.anecdotes,
-  filter: state.filter,
-})
+const mapStateToProps = ({ anecdotes, filter }) => ({ anecdotes, filter })
 
 const mapDispatchToProps = {
   actionVote,
